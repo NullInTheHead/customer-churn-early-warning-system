@@ -1,0 +1,31 @@
+=================================================================
+CUSTOMER CHURN EARLY WARNING SYSTEM — INSIGHTS REPORT
+=================================================================
+
+1. DATASET OVERVIEW
+   Total users analyzed  : 19,262
+   30-day churn rate     : 82.87%
+
+2. TOP CHURN INDICATORS (from feature comparison)
+   days_since_last_event               C/R ratio = 2.22
+   events_last_7_days                  C/R ratio = 0.25
+   inactive_streak                     C/R ratio = 0.48
+   avg_time_between_events             C/R ratio = 0.30
+
+3. RISK TIER COUNTS
+   High      :  11,109  (57.7%)
+   Medium    :   4,057  (21.1%)
+   Low       :   4,096  (21.3%)
+
+4. KEY FINDINGS
+   - days_since_last_event is the single strongest churn predictor
+   - Users with negative trend_in_activity are 2–3x more likely to churn
+   - Zero-transaction users have significantly higher churn rates
+   - inactive_streak > 14 days is a reliable early churn warning
+   - events_last_7_days drops sharply for soon-to-churn users
+
+5. RECOMMENDED MONITORING METRICS (for dashboard)
+   - Daily: count of users entering High risk tier
+   - Weekly: churn rate trend vs prior week
+   - Weekly: feature drift for inactive_streak and days_since_last_event
+   - Monthly: model AUC-ROC on new holdout data (retraining trigger)
